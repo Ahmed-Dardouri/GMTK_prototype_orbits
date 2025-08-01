@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://nv3u186nb4he"]
+
+[ext_resource type="PackedScene" uid="uid://24polbbpucqr" path="res://scenes/god.tscn" id="1_uwrxv"]
+
+[node name="Game" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="God" parent="." instance=ExtResource("1_uwrxv")]
