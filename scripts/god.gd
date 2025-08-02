@@ -1,6 +1,6 @@
 extends Node
 @onready var god = $"."
-const GRAVITY = 40000
+const GRAVITY = 400
 var simulation_started := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +23,7 @@ func apply_gravity(celestial_body : CharacterBody2D):
 		if(celestial_body != other_body):
 			var direction = other_body.position - celestial_body.position
 			var distance = celestial_body.position.distance_to(other_body.position)
-			var force = GRAVITY * celestial_body.MASS * other_body.MASS / (distance * distance)
+			var force = GRAVITY * celestial_body.MASS * other_body.MASS / (distance)
 			var force_vector = force * direction.normalized()
 			celestial_body.apply_godly_force(force_vector)
 	pass
@@ -39,10 +39,12 @@ func stop_simulation() -> void:
 		body.stop_simulation()
 
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			if simulation_started:
-				stop_simulation()
-			else:
-				start_simulation()
+func play_stop() -> void:
+	if simulation_started:
+		stop_simulation()
+	else:
+		start_simulation()
+
+func failed() -> void:
+	stop_simulation()
+	

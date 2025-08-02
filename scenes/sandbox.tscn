@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1nj17se20hhx"]
+
+[ext_resource type="PackedScene" uid="uid://dwcvgfvr8857o" path="res://scenes/area_limiter.tscn" id="1_2ddto"]
+
+[node name="sandbox" type="Node2D"]
+
+[node name="area_limiter2" parent="." instance=ExtResource("1_2ddto")]
+position = Vector2(676, 648)
+scale = Vector2(23.0015, 1.11258)
+
+[node name="area_limiter3" parent="." instance=ExtResource("1_2ddto")]
+position = Vector2(108, 291)
+rotation = -1.57101
+scale = Vector2(29.5215, 5.39264)
+
+[node name="area_limiter4" parent="." instance=ExtResource("1_2ddto")]
+position = Vector2(1158, 330)
+rotation = -1.57101
+scale = Vector2(29.5215, 1.11258)
+
+[node name="area_limiter5" parent="." instance=ExtResource("1_2ddto")]
+position = Vector2(676, 0)
+scale = Vector2(23.0015, 1.09758)

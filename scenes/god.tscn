@@ -1,33 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://24polbbpucqr"]
+[gd_scene load_steps=2 format=3 uid="uid://24polbbpucqr"]
 
 [ext_resource type="Script" uid="uid://d0o8bsvl7ayq3" path="res://scripts/god.gd" id="1_n5rnk"]
-[ext_resource type="PackedScene" uid="uid://cc7y8lj4rpjev" path="res://scenes/celestialBody.tscn" id="2_grik1"]
-[ext_resource type="Texture2D" uid="uid://b1trqd4pbrii8" path="res://sprites/earth.png" id="3_nostd"]
 
-[node name="God" type="Node2D"]
+[node name="god" type="Node2D"]
 script = ExtResource("1_n5rnk")
-
-[node name="Body" parent="." instance=ExtResource("2_grik1")]
-
-[node name="Sprite2D" type="Sprite2D" parent="Body"]
-scale = Vector2(0.279998, 0.279998)
-texture = ExtResource("3_nostd")
-
-[node name="Body2" parent="." instance=ExtResource("2_grik1")]
-position = Vector2(-294, -2)
-scale = Vector2(1.00148, 1)
-MASS = 30
-
-[node name="Sprite2D" type="Sprite2D" parent="Body2"]
-scale = Vector2(0.281064, 0.281064)
-texture = ExtResource("3_nostd")
-
-[node name="Body3" parent="." instance=ExtResource("2_grik1")]
-position = Vector2(291, -2)
-rotation = 3.14159
-scale = Vector2(1.00297, 1)
-MASS = 50
-
-[node name="Sprite2D" type="Sprite2D" parent="Body3"]
-scale = Vector2(0.282132, 0.282132)
-texture = ExtResource("3_nostd")
