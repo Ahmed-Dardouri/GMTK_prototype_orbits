@@ -38,12 +38,19 @@ width = 3.35
 
 [node name="Button" type="Button" parent="."]
 z_index = 35
-offset_left = -4.0
-offset_top = -42.0
-offset_right = 4.0
-offset_bottom = -34.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -44.0
+offset_right = 6.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(2.40365, 2.39074)
-pivot_offset = Vector2(4, 4)
+pivot_offset = Vector2(5.94965, 6.37842)
 theme_override_styles/hover = SubResource("StyleBoxFlat_23jat")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q8ifc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_umosx")
