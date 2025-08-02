@@ -50,7 +50,7 @@ func set_god_children() -> void:
 		god_child.queue_free()
 	
 	for index in range(level + 2):
-		var new_body = clone_body(bodies.get_child(index).duplicate())
+		var new_body = clone_body(bodies.get_child(index))
 		god.add_child(new_body)
 
 	for god_child in god.get_children():
