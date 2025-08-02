@@ -70,7 +70,6 @@ func pass_level():
 		level += 1
 
 func connect_ui_signals():
-	ui.timer_passed.connect(pass_level)
 	ui.next_level_request.connect(load_next_level)
 	
 func connect_god_signals():
@@ -84,6 +83,7 @@ func simulation_stopped_handler():
 	ui.reset_simulation()
 	
 func load_next_level():
+	pass_level()
 	start_level()
 
 

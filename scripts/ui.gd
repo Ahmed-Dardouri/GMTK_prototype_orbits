@@ -1,6 +1,5 @@
 extends Control
 
-signal timer_passed
 signal next_level_request
 
 
@@ -88,7 +87,6 @@ func counter_float2str(counter_value: float) -> String:
 
 func check_timer() -> void:
 	if counter_value > COUNTER_WIN_CON && timer_sigmal_emitted == false:
-		emit_signal("timer_passed")
 		timer_sigmal_emitted = true
 		counter_label.add_theme_color_override("font_color", Color.GREEN)
 		next_lvl.disabled = false

@@ -4,7 +4,7 @@ signal simulation_stopped
 signal simulation_started
 
 @onready var god = $"."
-const GRAVITY = 350
+const GRAVITY = 200
 var simulation_ongoing := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
