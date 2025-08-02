@@ -5,7 +5,7 @@ extends Node
 @onready var bodies := $Bodies
 @onready var ui := $UI
 
-var level :int = 0
+var level :int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_sandbox_signals()

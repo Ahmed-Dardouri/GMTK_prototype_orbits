@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var sprite_texture : Texture
 @export var collision_disabled : bool = true
 
-@onready var arrow : Node2D
+@onready var arrow := $Arrow
 @onready var button := $Button
 @onready var sprite := $Sprite2D
 @onready var Collision_shape : CollisionShape2D = $CollisionShape2D
@@ -21,16 +21,19 @@ var acceleration : Vector2 = Vector2.ZERO
 
 
 
-
 func _ready() -> void:
-	
+	var scale_multiplier : float = sqrt(MASS/100.0) / 4
 	sprite.texture = sprite_texture
 	sprite.scale *= 0.28
 	
+	print(scale_multiplier)
+	
 	Collision_shape.disabled = collision_disabled
 	drooped_pos = position
-	scale *= sqrt(MASS/100.0) / 2
-	arrow = get_node("Arrow")
+	scale *= scale_multiplier
+	
+	arrow.scale /= scale_multiplier
+
 	set_arrow_visibile(true)
 
 func _physics_process(delta: float) -> void:

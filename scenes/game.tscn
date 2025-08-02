@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://nv3u186nb4he"]
+[gd_scene load_steps=9 format=3 uid="uid://nv3u186nb4he"]
 
 [ext_resource type="Script" uid="uid://bh5gta28e0jtv" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://24polbbpucqr" path="res://scenes/god.tscn" id="1_uwrxv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cc7y8lj4rpjev" path="res://scenes/celestialBody.tscn" id="5_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://b1trqd4pbrii8" path="res://sprites/earth.png" id="6_gee14"]
 [ext_resource type="Texture2D" uid="uid://cshys3nneo7nx" path="res://sprites/moon.png" id="7_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://dgfk5ayl118n7" path="res://sprites/sun.png" id="8_gee14"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_lbhrr")
@@ -37,3 +38,8 @@ sprite_texture = ExtResource("6_gee14")
 position = Vector2(483, 244)
 MASS = 20
 sprite_texture = ExtResource("7_0tnpc")
+
+[node name="sun" parent="Bodies" instance=ExtResource("5_u5sy4")]
+position = Vector2(231, 242)
+MASS = 300
+sprite_texture = ExtResource("8_gee14")
