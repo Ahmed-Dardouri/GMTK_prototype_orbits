@@ -3,6 +3,7 @@ extends Node
 @onready var god := $god
 @onready var sandbox := $sandbox
 @onready var bodies := $Bodies
+@onready var ui := $UI
 
 var level :int = 0
 # Called when the node enters the scene tree for the first time.
@@ -57,4 +58,4 @@ func set_god_children() -> void:
 		god_child.visible = true
 
 func set_UI() -> void:
-	pass
+	ui.set_UI_bodies(god.get_children())

@@ -59,7 +59,7 @@ func _on_button_button_up() -> void:
 
 func start_simulation() -> void:
 	simulation_started = true
-	if(arrow != null):
+	if arrow != null :
 		sum_acceleration += arrow.force_vector *100
 		set_arrow_visibile(false)
 	button.visible = false
@@ -78,4 +78,5 @@ func set_arrow_visibile(value : bool) -> void:
 		arrow.visible = false
 
 func enable_initial_force(value : bool) -> void:
-	arrow.enable_force = value
+	arrow.set_force(value)
+	set_arrow_visibile(value)

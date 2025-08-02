@@ -5,13 +5,13 @@
 [node name="sandbox" type="Node2D"]
 
 [node name="area_limiter2" parent="." instance=ExtResource("1_2ddto")]
-position = Vector2(676, 648)
-scale = Vector2(23.0015, 1.11258)
+position = Vector2(703.7, 648)
+scale = Vector2(21.61, 0.744)
 
 [node name="area_limiter3" parent="." instance=ExtResource("1_2ddto")]
-position = Vector2(108, 291)
+position = Vector2(134, 290)
 rotation = -1.57101
-scale = Vector2(29.5215, 5.39264)
+scale = Vector2(34.5487, 6.87271)
 
 [node name="area_limiter4" parent="." instance=ExtResource("1_2ddto")]
 position = Vector2(1158, 330)
@@ -19,5 +19,5 @@ rotation = -1.57101
 scale = Vector2(29.5215, 1.11258)
 
 [node name="area_limiter5" parent="." instance=ExtResource("1_2ddto")]
-position = Vector2(676, 0)
-scale = Vector2(23.0015, 1.09758)
+position = Vector2(703.7, 0)
+scale = Vector2(21.61, 0.744)

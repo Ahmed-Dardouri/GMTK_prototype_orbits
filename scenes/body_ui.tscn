@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dli88pe4ify0i"]
+
+[ext_resource type="Script" uid="uid://48s403qddrt8" path="res://scripts/body_ui.gd" id="1_gicuk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcj8h"]
+bg_color = Color(0.366595, 0.366595, 0.366594, 1)
+
+[node name="Body_ui" type="PanelContainer"]
+custom_minimum_size = Vector2(160, 25)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jcj8h")
+script = ExtResource("1_gicuk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+button_pressed = true
+text = "Initial force enable"
+
+[connection signal="toggled" from="MarginContainer/HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

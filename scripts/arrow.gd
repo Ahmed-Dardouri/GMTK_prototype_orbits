@@ -10,9 +10,7 @@ var drag_drop : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if enable_force :
-		set_force()
-	pass # Replace with function body.
+	set_force(enable_force)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,9 +27,13 @@ func _on_button_button_down() -> void:
 
 
 func _on_button_button_up() -> void:
-	set_force()
+	set_force(enable_force)
 	drag_drop = false
 	pass # Replace with function body.
 
-func set_force() -> void:
-	force_vector = button.global_position - base.global_position
+func set_force(value: bool) -> void:
+	enable_force = value
+	if enable_force :
+		force_vector = button.global_position - base.global_position
+	else:
+		force_vector = Vector2.ZERO
