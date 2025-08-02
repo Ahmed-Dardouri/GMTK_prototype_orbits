@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c06jwjeyv0hph"]
+[gd_scene load_steps=7 format=3 uid="uid://c06jwjeyv0hph"]
 
 [ext_resource type="Script" uid="uid://n2cg1bk2p3ji" path="res://scripts/ui.gd" id="1_nt7q6"]
 
@@ -6,6 +6,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlq6p"]
 bg_color = Color(0.172833, 0.172833, 0.172833, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nt7q6"]
+bg_color = Color(0.309565, 0.764723, 0.517138, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4jx1"]
+bg_color = Color(0.412736, 0.663827, 0.534592, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yev5y"]
+bg_color = Color(0.273523, 0.772706, 0.471046, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -20,8 +29,9 @@ script = ExtResource("1_nt7q6")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.224
-anchor_bottom = 1.0
+anchor_bottom = 0.997
 offset_right = -0.0480042
+offset_bottom = -0.0560303
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nt7q6")
 
@@ -35,13 +45,29 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_constants/separation = 210
+theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_xlq6p")
 text = "Start"
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "00:00"
+
+[node name="level_up_button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_nt7q6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x4jx1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yev5y")
+disabled = true
+text = "Next LeveL"
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -57,4 +83,5 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[connection signal="button_down" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="PanelContainer/MarginContainer/VBoxContainer/level_up_button" to="." method="_on_level_up_button_button_down"]

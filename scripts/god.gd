@@ -1,7 +1,11 @@
 extends Node
+
+signal simulation_stopped
+signal simulation_started
+
 @onready var god = $"."
-const GRAVITY = 400
-var simulation_started := false
+const GRAVITY = 350
+var simulation_ongoing := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -9,7 +13,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if simulation_started == true:
+	
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		print(get_children())
+	if simulation_ongoing == true:
 		apply_gravity_to_all()
 
 
@@ -28,22 +35,27 @@ func apply_gravity(celestial_body : CharacterBody2D):
 			celestial_body.apply_godly_force(force_vector)
 	pass
 
+
 func start_simulation() -> void:
-	simulation_started = true
+	simulation_ongoing = true
 	for body in god.get_children():
 		body.start_simulation()
-		
+	emit_signal("simulation_started")
+	
 func stop_simulation() -> void:
-	simulation_started = false
+	simulation_ongoing = false
 	for body in god.get_children():
 		body.stop_simulation()
+	emit_signal("simulation_stopped")
 
 
-func play_stop() -> void:
-	if simulation_started:
+func play_stop() -> bool:
+	if simulation_ongoing:
 		stop_simulation()
+		return false
 	else:
 		start_simulation()
+		return true
 
 func failed() -> void:
 	stop_simulation()

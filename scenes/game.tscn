@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://nv3u186nb4he"]
+[gd_scene load_steps=14 format=3 uid="uid://nv3u186nb4he"]
 
 [ext_resource type="Script" uid="uid://bh5gta28e0jtv" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://24polbbpucqr" path="res://scenes/god.tscn" id="1_uwrxv"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://b1trqd4pbrii8" path="res://sprites/earth.png" id="6_gee14"]
 [ext_resource type="Texture2D" uid="uid://cshys3nneo7nx" path="res://sprites/moon.png" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://dgfk5ayl118n7" path="res://sprites/sun.png" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://yvs45jyahlvk" path="res://sprites/mercury.png" id="9_kvuet"]
+[ext_resource type="Texture2D" uid="uid://dw728qt3gey55" path="res://sprites/venus.png" id="10_trtic"]
+[ext_resource type="Texture2D" uid="uid://dl8jik0ex2nee" path="res://sprites/mars.png" id="11_ir15t"]
+[ext_resource type="Texture2D" uid="uid://llfjixxn0qg8" path="res://sprites/jupiter.png" id="12_ca42v"]
+[ext_resource type="Texture2D" uid="uid://dallujn4ivmeh" path="res://sprites/saturn.png" id="13_rysoc"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_lbhrr")
@@ -31,15 +36,46 @@ unique_name_in_owner = true
 visible = false
 
 [node name="earth" parent="Bodies" instance=ExtResource("5_u5sy4")]
-position = Vector2(369, 243)
+position = Vector2(388, 252)
 sprite_texture = ExtResource("6_gee14")
 
 [node name="moon" parent="Bodies" instance=ExtResource("5_u5sy4")]
-position = Vector2(483, 244)
+position = Vector2(495, 247)
 MASS = 20
 sprite_texture = ExtResource("7_0tnpc")
 
 [node name="sun" parent="Bodies" instance=ExtResource("5_u5sy4")]
-position = Vector2(231, 242)
+position = Vector2(276, 251)
 MASS = 300
 sprite_texture = ExtResource("8_gee14")
+
+[node name="mercury" parent="Bodies" instance=ExtResource("5_u5sy4")]
+position = Vector2(165, 251)
+MASS = 30
+sprite_texture = ExtResource("9_kvuet")
+
+[node name="venus" parent="Bodies" instance=ExtResource("5_u5sy4")]
+position = Vector2(57, 252)
+MASS = 70
+sprite_texture = ExtResource("10_trtic")
+
+[node name="mars" parent="Bodies" instance=ExtResource("5_u5sy4")]
+position = Vector2(-51, 253)
+MASS = 50
+sprite_texture = ExtResource("11_ir15t")
+
+[node name="jupiter" parent="Bodies" instance=ExtResource("5_u5sy4")]
+position = Vector2(-153, 255)
+MASS = 200
+sprite_texture = ExtResource("12_ca42v")
+
+[node name="saturn" parent="Bodies" instance=ExtResource("5_u5sy4")]
+position = Vector2(-246, 253)
+MASS = 150
+sprite_texture = ExtResource("13_rysoc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

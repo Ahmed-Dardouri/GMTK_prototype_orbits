@@ -25,14 +25,13 @@ func _ready() -> void:
 	var scale_multiplier : float = sqrt(MASS/100.0) / 4
 	sprite.texture = sprite_texture
 	sprite.scale *= 0.28
-	
-	print(scale_multiplier)
+
 	
 	Collision_shape.disabled = collision_disabled
 	drooped_pos = position
 	scale *= scale_multiplier
 	
-	arrow.scale /= scale_multiplier
+	arrow.scale /= scale_multiplier*2
 
 	set_arrow_visibile(true)
 
@@ -49,11 +48,9 @@ func _process(delta: float) -> void:
 func apply_godly_force(force: Vector2):
 	sum_acceleration += force / MASS
 
-
 func _on_button_button_down() -> void:
 	drag_drop = true
 	pass # Replace with function body.
-
 
 func _on_button_button_up() -> void:
 	drag_drop = false

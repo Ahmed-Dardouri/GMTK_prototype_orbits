@@ -4,12 +4,15 @@ extends Node
 @onready var sandbox := $sandbox
 @onready var bodies := $Bodies
 @onready var ui := $UI
+@onready var timer := $Timer
 
-var level :int = 1
+const MAX_LEVEL = 6
+var level :int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	connect_god_signals()
+	connect_ui_signals()
 	connect_sandbox_signals()
-	assert(god != null, "There is no GOD!")
 	start_level()
 	pass # Replace with function body.
 
@@ -28,7 +31,8 @@ func connect_sandbox_signals() -> void:
 
 func start_level()-> void:
 	set_god_children()
-	set_UI()
+	timer.start()
+	
 
 func hide_bodies() -> void:
 	for body in bodies.get_children():
@@ -59,3 +63,29 @@ func set_god_children() -> void:
 
 func set_UI() -> void:
 	ui.set_UI_bodies(god.get_children())
+	ui.reset_simulation()
+
+func pass_level():
+	if level < MAX_LEVEL:
+		level += 1
+
+func connect_ui_signals():
+	ui.timer_passed.connect(pass_level)
+	ui.next_level_request.connect(load_next_level)
+	
+func connect_god_signals():
+	god.simulation_started.connect(simulation_started_handler)
+	god.simulation_stopped.connect(simulation_stopped_handler)
+
+func simulation_started_handler():
+	pass
+
+func simulation_stopped_handler():
+	ui.reset_simulation()
+	
+func load_next_level():
+	start_level()
+
+
+func _on_timer_timeout() -> void:
+	set_UI()
