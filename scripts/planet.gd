@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var button := $Button
 @onready var sprite := $Sprite2D
 @onready var Collision_shape : CollisionShape2D = $CollisionShape2D
+signal collided
 
 
 var drooped_pos : Vector2 = Vector2.ZERO
@@ -40,6 +41,7 @@ func _physics_process(delta: float) -> void:
 		velocity += sum_acceleration * delta
 		sum_acceleration = Vector2.ZERO
 		move_and_slide()
+		check_collisions()
 
 func _process(delta: float) -> void:
 	if drag_drop == true && simulation_started == false:
@@ -80,3 +82,11 @@ func set_arrow_visibile(value : bool) -> void:
 func enable_initial_force(value : bool) -> void:
 	arrow.set_force(value)
 	set_arrow_visibile(value)
+
+
+func check_collisions() -> void:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is CharacterBody2D:
+			emit_signal("collided")

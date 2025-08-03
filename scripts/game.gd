@@ -10,6 +10,7 @@ const MAX_LEVEL = 6
 var level :int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	connect_bodies_signals()
 	connect_god_signals()
 	connect_ui_signals()
 	connect_sandbox_signals()
@@ -31,6 +32,7 @@ func connect_sandbox_signals() -> void:
 
 func start_level()-> void:
 	set_god_children()
+	connect_bodies_signals()
 	timer.start()
 	
 
@@ -76,6 +78,10 @@ func connect_god_signals():
 	god.simulation_started.connect(simulation_started_handler)
 	god.simulation_stopped.connect(simulation_stopped_handler)
 
+func connect_bodies_signals() -> void:
+	for body in god.get_children():
+		body.collided.connect(god.failed)
+	
 func simulation_started_handler():
 	pass
 
