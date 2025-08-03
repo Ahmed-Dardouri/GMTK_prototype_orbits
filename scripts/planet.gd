@@ -25,7 +25,6 @@ var acceleration : Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
-	print(global_position)
 	trail.set_custom_color(trail_color)
 	var scale_multiplier : float = sqrt(MASS/100.0) / 4
 	sprite.texture = sprite_texture
@@ -66,6 +65,8 @@ func _on_button_button_up() -> void:
 
 func start_simulation() -> void:
 	simulation_started = true
+	trail.track = true
+	trail.reset_trail()
 	if arrow != null :
 		sum_acceleration += arrow.force_vector *100
 		set_arrow_visibile(false)
@@ -74,6 +75,7 @@ func start_simulation() -> void:
 func stop_simulation() -> void:
 	position = drooped_pos
 	simulation_started = false
+	trail.track = false
 	set_arrow_visibile(true)
 	button.visible = true
 	velocity = Vector2.ZERO
