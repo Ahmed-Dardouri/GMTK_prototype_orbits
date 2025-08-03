@@ -5,6 +5,7 @@ extends Node
 @onready var bodies := $Bodies
 @onready var ui := $UI
 @onready var timer := $Timer
+@onready var explosion := $explosion
 
 const MAX_LEVEL = 6
 var level :int = 0
@@ -82,6 +83,7 @@ func connect_god_signals():
 func connect_bodies_signals() -> void:
 	for body in god.get_children():
 		body.collided.connect(god.failed)
+		body.play_explosion_sig.connect(play_explosion)
 	
 func simulation_started_handler():
 	pass
@@ -96,3 +98,8 @@ func load_next_level():
 
 func _on_timer_timeout() -> void:
 	set_UI()
+	
+func play_explosion(pos : Vector2):
+	explosion.global_position = pos
+	print(explosion.global_position)
+	explosion.play()

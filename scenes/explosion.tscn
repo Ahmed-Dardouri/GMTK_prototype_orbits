@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcxuavg5dn8ga"]
+
+[ext_resource type="Texture2D" uid="uid://bvdliotmnl8dx" path="res://sprites/circle_texture.png" id="1_17npe"]
+[ext_resource type="Script" uid="uid://ifedkg8wo2ka" path="res://scripts/explosion.gd" id="1_nfeox"]
+
+[sub_resource type="Curve" id="Curve_3oo6d"]
+_data = [Vector2(0.0094518, 0.986326), 0.0, 0.0, 0, 0, Vector2(1, 0.019986), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_3oo6d"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.994036)
+colors = PackedColorArray(0.756863, 0.352941, 0, 1, 1, 0.996078, 0.164706, 1)
+
+[node name="explosion" type="Node2D"]
+script = ExtResource("1_nfeox")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(1.08518, -0.578658)
+emitting = false
+amount = 40
+texture = ExtResource("1_17npe")
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.1
+scale_amount_curve = SubResource("Curve_3oo6d")
+color = Color(1, 0.541176, 0.196078, 1)
+color_ramp = SubResource("Gradient_3oo6d")

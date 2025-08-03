@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var Collision_shape : CollisionShape2D = $CollisionShape2D
 @onready var trail := $Trail
 
+signal play_explosion_sig(pos: Vector2)
 signal collided
 
 var drooped_pos : Vector2 = Vector2.ZERO
@@ -92,4 +93,9 @@ func check_collisions() -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider is CharacterBody2D:
+			var collision_point = collision.get_position()
+			play_explosion(collision_point)
 			emit_signal("collided")
+
+func play_explosion(pos : Vector2):
+	emit_signal("play_explosion_sig", pos)
