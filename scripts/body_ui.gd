@@ -16,8 +16,8 @@ func _ready() -> void:
 func setCheckButton(value: bool) -> void:
 	checkButton.button_pressed = value
 
-func setTexture(texture : Texture) -> void:
-	textureRect.texture = texture
+func setTexture(texture_param : Texture) -> void:
+	textureRect.texture = texture_param
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	emit_signal("set_initial_force", toggled_on) 

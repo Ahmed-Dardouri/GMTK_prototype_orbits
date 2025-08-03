@@ -7,7 +7,7 @@ extends Node
 @onready var timer := $Timer
 
 const MAX_LEVEL = 6
-var level :int = 0
+var level :int = 6
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_bodies_signals()

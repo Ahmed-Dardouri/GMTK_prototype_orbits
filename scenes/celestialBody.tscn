@@ -39,6 +39,7 @@ motion_mode = 1
 script = ExtResource("1_6jdtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1.2, 1.2, 1.2, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.24707, 4.24)

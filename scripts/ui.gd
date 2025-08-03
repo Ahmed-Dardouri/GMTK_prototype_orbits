@@ -78,10 +78,10 @@ func update_counter_value(delta : float) -> void:
 	else:
 		counter_value = 0
 
-func counter_float2str(counter_value: float) -> String:
+func counter_float2str(counter_value_param: float) -> String:
 	var counter_string = "%02d.%02d" % [
-		int(counter_value),
-		int((counter_value - int(counter_value)) * 100)
+		int(counter_value_param),
+		int((counter_value_param - int(counter_value_param)) * 100)
 	]
 	return counter_string
 
