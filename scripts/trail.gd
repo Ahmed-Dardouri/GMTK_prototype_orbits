@@ -23,6 +23,5 @@ func _get_position():
 	return main_body.global_position
 
 func set_custom_color(col: Color) -> void:
-	print(custom_color)
 	custom_color = col
 	default_color = custom_color

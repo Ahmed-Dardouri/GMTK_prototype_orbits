@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @onready var god := $god
 @onready var sandbox := $sandbox
@@ -7,15 +7,14 @@ extends Node
 @onready var timer := $Timer
 @onready var explosion := $explosion
 
+signal explosion_sfx
+signal lvl_passed_sfx
+
 const MAX_LEVEL = 6
 var level :int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	connect_bodies_signals()
-	connect_god_signals()
-	connect_ui_signals()
-	connect_sandbox_signals()
-	start_level()
+	restart()
 	pass # Replace with function body.
 
 
@@ -61,6 +60,7 @@ func set_god_children() -> void:
 	for index in range(level + 2):
 		var new_body = clone_body(bodies.get_child(index))
 		god.add_child(new_body)
+		print(new_body)
 
 	for god_child in god.get_children():
 		god_child.visible = true
@@ -75,6 +75,7 @@ func pass_level():
 
 func connect_ui_signals():
 	ui.next_level_request.connect(load_next_level)
+	ui.timer_5s.connect(play_sfx_lvl_passed)
 	
 func connect_god_signals():
 	god.simulation_started.connect(simulation_started_handler)
@@ -101,5 +102,16 @@ func _on_timer_timeout() -> void:
 	
 func play_explosion(pos : Vector2):
 	explosion.global_position = pos
-	print(explosion.global_position)
 	explosion.play()
+	emit_signal("explosion_sfx")
+
+func restart():
+	level = 0
+	connect_bodies_signals()
+	connect_god_signals()
+	connect_ui_signals()
+	connect_sandbox_signals()
+	start_level()
+	
+func play_sfx_lvl_passed():
+	emit_signal("lvl_passed_sfx")

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 signal simulation_stopped
 signal simulation_started
@@ -13,7 +13,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	
 	if simulation_ongoing == true:
 		apply_gravity_to_all()
 

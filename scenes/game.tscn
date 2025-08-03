@@ -24,29 +24,29 @@ glow_strength = 0.59
 glow_bloom = 0.03
 glow_blend_mode = 1
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_lbhrr")
 
 [node name="Milkyway" type="Sprite2D" parent="."]
 z_index = -500
-position = Vector2(2, -13)
-scale = Vector2(0.335, 0.335)
+position = Vector2(577.44, 308.4)
+scale = Vector2(0.36, 0.36)
 texture = ExtResource("2_trtic")
 
 [node name="sandbox" parent="." instance=ExtResource("3_lnu2h")]
 unique_name_in_owner = true
-position = Vector2(-576, -324)
+position = Vector2(-0.560059, -0.600037)
 
 [node name="UI" parent="." instance=ExtResource("2_yqjtg")]
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -576.0
-offset_bottom = -324.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
+offset_left = 13.4399
+offset_top = 120.4
+offset_right = 13.4399
+offset_bottom = 120.4
 
 [node name="god" parent="." instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
+z_index = 50
+position = Vector2(575.44, 323.4)
 
 [node name="Bodies" type="Node2D" parent="."]
 visible = false
@@ -106,5 +106,6 @@ environment = SubResource("Environment_trtic")
 
 [node name="explosion" parent="." instance=ExtResource("15_ir15t")]
 top_level = true
+position = Vector2(575.44, 323.4)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

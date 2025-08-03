@@ -1,7 +1,7 @@
 extends Control
 
 signal next_level_request
-
+signal timer_5s
 
 @onready var god : Node2D = %god
 @onready var bodies_ui = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/bodies_ui
@@ -16,7 +16,6 @@ const COUNTER_WIN_CON = 5
 var timer_sigmal_emitted : bool = false
 var simulation_ongoing : bool = false
 
-var game_mngr : Node
 
 var counter_value : float = 0
 
@@ -91,6 +90,7 @@ func check_timer() -> void:
 		timer_sigmal_emitted = true
 		counter_label.add_theme_color_override("font_color", Color.GREEN)
 		next_lvl_button.disabled = false
+		emit_signal("timer_5s")
 
 func _on_level_up_button_button_down() -> void:
 	emit_signal("next_level_request")

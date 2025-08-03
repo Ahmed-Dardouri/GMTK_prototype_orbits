@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://3yf30ahepiua"]
+
+[ext_resource type="PackedScene" uid="uid://nv3u186nb4he" path="res://scenes/game.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bc0fqvgl0m05l" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dbo7ug8j4epv7" path="res://scenes/home_screen.tscn" id="2_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://bp5h1nmtrco1f" path="res://audio/peaceful-24736.mp3" id="4_jyhfs"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_sugp2")
+
+[node name="Home_screen" parent="." instance=ExtResource("2_0wfyh")]
+offset_right = 0.00012207
+
+[node name="Game" parent="." instance=ExtResource("1_o5qli")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jyhfs")
+autoplay = true
+parameters/looping = true

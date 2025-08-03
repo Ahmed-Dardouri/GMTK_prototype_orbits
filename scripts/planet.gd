@@ -25,6 +25,7 @@ var acceleration : Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
+	print(global_position)
 	trail.set_custom_color(trail_color)
 	var scale_multiplier : float = sqrt(MASS/100.0) / 4
 	sprite.texture = sprite_texture

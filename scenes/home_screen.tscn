@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbo7ug8j4epv7"]
+
+[ext_resource type="Texture2D" uid="uid://qcvy6ccr033h" path="res://sprites/orbits_bg_highres.png" id="1_lapbl"]
+[ext_resource type="Script" uid="uid://fhe447ba6fxh" path="res://scripts/home_screen.gd" id="1_ujmiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lapbl"]
+
+[node name="Home_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ujmiq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_lapbl")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 0
+offset_left = 650.0
+offset_top = 292.0
+offset_right = 850.0
+offset_bottom = 592.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lapbl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Play_Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Play"
+
+[node name="Controls_Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Controls"
+
+[node name="Exit_Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Exit"
+
+[connection signal="button_down" from="PanelContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_button_down"]
