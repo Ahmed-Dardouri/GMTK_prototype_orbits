@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bh5gta28e0jtv" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://24polbbpucqr" path="res://scenes/god.tscn" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://07vqoou0dslv" path="res://sprites/milkyway.png" id="2_trtic"]
+[ext_resource type="Texture2D" uid="uid://bjtnh52vn2bc6" path="res://sprites/gameplay_bg.png" id="2_ir15t"]
 [ext_resource type="PackedScene" uid="uid://c06jwjeyv0hph" path="res://scenes/ui.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c1nj17se20hhx" path="res://scenes/sandbox.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cc7y8lj4rpjev" path="res://scenes/celestialBody.tscn" id="5_u5sy4"]
@@ -27,11 +27,10 @@ glow_blend_mode = 1
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lbhrr")
 
-[node name="Milkyway" type="Sprite2D" parent="."]
-z_index = -500
-position = Vector2(577.44, 308.4)
-scale = Vector2(0.36, 0.36)
-texture = ExtResource("2_trtic")
+[node name="GameplayBg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ir15t")
 
 [node name="sandbox" parent="." instance=ExtResource("3_lnu2h")]
 unique_name_in_owner = true
