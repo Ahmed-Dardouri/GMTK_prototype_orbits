@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://jt3afwagu1k0"]
+
+[ext_resource type="Texture2D" uid="uid://qcvy6ccr033h" path="res://sprites/orbits_bg_highres.png" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://hkcvpseov1v" path="res://scripts/settings.gd" id="1_r6d6q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6d6q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p8wc"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 0.866667)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p8wc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wm04"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6d6q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_5p8wc")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 300)
+offset_left = 650.0
+offset_top = 292.0
+offset_right = 850.0
+offset_bottom = 592.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r6d6q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Musicpanel" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5p8wc")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/Musicpanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Music_hbox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Musicpanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Musicpanel/MarginContainer/Music_hbox"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Music"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/Musicpanel/MarginContainer/Music_hbox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5p8wc")
+
+[node name="Music_slider" type="HSlider" parent="PanelContainer/VBoxContainer/Musicpanel/MarginContainer/Music_hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -40.0
+max_value = 0.0
+
+[node name="Sfxpanel" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5p8wc")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/Sfxpanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Sfx_hbox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Sfxpanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Sfxpanel/MarginContainer/Sfx_hbox"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Sfx"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/Sfxpanel/MarginContainer/Sfx_hbox"]
+layout_mode = 2
+theme_override_constants/separation = 33
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5p8wc")
+
+[node name="Sfx_slider" type="HSlider" parent="PanelContainer/VBoxContainer/Sfxpanel/MarginContainer/Sfx_hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -40.0
+max_value = 0.0
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6wm04")
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/Musicpanel/MarginContainer/Music_hbox/Music_slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/Sfxpanel/MarginContainer/Sfx_hbox/Sfx_slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -37,10 +37,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Play"
 
-[node name="Controls_Button" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Settings_Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Controls"
+text = "Settings"
 
 [node name="Exit_Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -48,3 +48,5 @@ theme_override_font_sizes/font_size = 24
 text = "Exit"
 
 [connection signal="button_down" from="PanelContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_button_down"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
