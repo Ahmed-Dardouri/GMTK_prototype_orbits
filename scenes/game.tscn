@@ -28,6 +28,7 @@ glow_blend_mode = 1
 script = ExtResource("1_lbhrr")
 
 [node name="GameplayBg" type="Sprite2D" parent="."]
+z_index = -810
 position = Vector2(576, 324)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_ir15t")

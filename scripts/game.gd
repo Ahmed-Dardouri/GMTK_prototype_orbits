@@ -60,7 +60,6 @@ func set_god_children() -> void:
 	for index in range(level + 2):
 		var new_body = clone_body(bodies.get_child(index))
 		god.add_child(new_body)
-		print(new_body)
 
 	for god_child in god.get_children():
 		god_child.visible = true

@@ -65,8 +65,8 @@ func _on_button_button_up() -> void:
 
 func start_simulation() -> void:
 	simulation_started = true
-	trail.track = true
 	trail.reset_trail()
+	trail.track = true
 	if arrow != null :
 		sum_acceleration += arrow.force_vector *100
 		set_arrow_visibile(false)
