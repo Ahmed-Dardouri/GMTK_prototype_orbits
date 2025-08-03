@@ -27,6 +27,7 @@ glow_blend_mode = 1
 script = ExtResource("1_lbhrr")
 
 [node name="Milkyway" type="Sprite2D" parent="."]
+z_index = -500
 position = Vector2(2, -13)
 scale = Vector2(0.335, 0.335)
 texture = ExtResource("2_trtic")
@@ -52,16 +53,19 @@ visible = false
 [node name="earth" parent="Bodies" instance=ExtResource("5_u5sy4")]
 position = Vector2(388, 252)
 sprite_texture = ExtResource("6_gee14")
+trail_color = Color(0.182228, 0.591027, 0.898643, 0.631373)
 
 [node name="moon" parent="Bodies" instance=ExtResource("5_u5sy4")]
 position = Vector2(495, 247)
 MASS = 20
 sprite_texture = ExtResource("7_0tnpc")
+trail_color = Color(0.737193, 0.737193, 0.737193, 0.631373)
 
 [node name="sun" parent="Bodies" instance=ExtResource("5_u5sy4")]
 position = Vector2(276, 251)
 MASS = 300
 sprite_texture = ExtResource("8_gee14")
+trail_color = Color(1, 0.823529, 0.203922, 0.631373)
 
 [node name="mercury" parent="Bodies" instance=ExtResource("5_u5sy4")]
 position = Vector2(165, 251)
@@ -72,21 +76,25 @@ sprite_texture = ExtResource("9_kvuet")
 position = Vector2(57, 252)
 MASS = 70
 sprite_texture = ExtResource("10_trtic")
+trail_color = Color(0.8, 0.752941, 0, 0.631373)
 
 [node name="mars" parent="Bodies" instance=ExtResource("5_u5sy4")]
 position = Vector2(-51, 253)
 MASS = 50
 sprite_texture = ExtResource("11_ir15t")
+trail_color = Color(1, 0.172549, 0.0941176, 0.631373)
 
 [node name="jupiter" parent="Bodies" instance=ExtResource("5_u5sy4")]
 position = Vector2(-153, 255)
 MASS = 200
 sprite_texture = ExtResource("12_ca42v")
+trail_color = Color(0.976471, 0.913725, 0.592157, 0.631373)
 
 [node name="saturn" parent="Bodies" instance=ExtResource("5_u5sy4")]
 position = Vector2(-246, 253)
 MASS = 150
 sprite_texture = ExtResource("13_rysoc")
+trail_color = Color(0.654975, 0.461475, 1.54018e-06, 0.631373)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05

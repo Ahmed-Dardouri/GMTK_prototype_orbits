@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cc7y8lj4rpjev"]
+[gd_scene load_steps=12 format=3 uid="uid://cc7y8lj4rpjev"]
 
 [ext_resource type="Script" uid="uid://vq620lophfsl" path="res://scripts/planet.gd" id="1_6jdtg"]
 [ext_resource type="PackedScene" uid="uid://dbkqvnao4pcue" path="res://scenes/arrow.tscn" id="2_6jdtg"]
+[ext_resource type="PackedScene" uid="uid://v3r6fyokxtxr" path="res://scenes/trail.tscn" id="3_vgkyu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
 
@@ -37,6 +38,11 @@ corner_radius_bottom_left = 100
 [node name="Body" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_6jdtg")
+
+[node name="Trail" parent="." node_paths=PackedStringArray("main_body") instance=ExtResource("3_vgkyu")]
+z_index = -20
+MAX_LENGTH = 200
+main_body = NodePath("../Arrow")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1.2, 1.2, 1.2, 1)

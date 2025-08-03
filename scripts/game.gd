@@ -7,7 +7,7 @@ extends Node
 @onready var timer := $Timer
 
 const MAX_LEVEL = 6
-var level :int = 6
+var level :int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_bodies_signals()
@@ -47,7 +47,7 @@ func clone_body(source: CharacterBody2D) -> Node2D:
 	
 	new_body.MASS = source.MASS
 	new_body.sprite_texture = source.sprite_texture
-	
+	new_body.trail_color = source.trail_color
 	new_body.collision_disabled = false
 	
 	return new_body

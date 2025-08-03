@@ -14,8 +14,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		print(get_children())
 	if simulation_ongoing == true:
 		apply_gravity_to_all()
 

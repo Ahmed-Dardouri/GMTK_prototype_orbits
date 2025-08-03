@@ -4,13 +4,15 @@ extends CharacterBody2D
 @export var MASS := 100
 @export var sprite_texture : Texture
 @export var collision_disabled : bool = true
+@export var trail_color : Color = Color(0xffffffa1)
 
 @onready var arrow := $Arrow
 @onready var button := $Button
 @onready var sprite := $Sprite2D
 @onready var Collision_shape : CollisionShape2D = $CollisionShape2D
-signal collided
+@onready var trail := $Trail
 
+signal collided
 
 var drooped_pos : Vector2 = Vector2.ZERO
 
@@ -21,8 +23,8 @@ var sum_acceleration : Vector2 = Vector2.ZERO
 var acceleration : Vector2 = Vector2.ZERO
 
 
-
 func _ready() -> void:
+	trail.set_custom_color(trail_color)
 	var scale_multiplier : float = sqrt(MASS/100.0) / 4
 	sprite.texture = sprite_texture
 	sprite.scale *= 0.28
@@ -35,7 +37,8 @@ func _ready() -> void:
 	arrow.scale /= scale_multiplier*2
 
 	set_arrow_visibile(true)
-
+	trail.width = sqrt(MASS)/2
+	
 func _physics_process(delta: float) -> void:
 	if simulation_started:
 		velocity += sum_acceleration * delta
