@@ -9,6 +9,7 @@ extends Node2D
 
 signal explosion_sfx
 signal lvl_passed_sfx
+signal level_loaded
 
 const MAX_LEVEL = 6
 var level :int = 0
@@ -35,6 +36,7 @@ func start_level()-> void:
 	set_god_children()
 	connect_bodies_signals()
 	timer.start()
+	emit_signal("level_loaded")
 	
 
 func hide_bodies() -> void:

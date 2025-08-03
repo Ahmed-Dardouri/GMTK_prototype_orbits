@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbo7ug8j4epv7"]
 
-[ext_resource type="Texture2D" uid="uid://qcvy6ccr033h" path="res://sprites/orbits_bg_highres.png" id="1_lapbl"]
 [ext_resource type="Script" uid="uid://fhe447ba6fxh" path="res://scripts/home_screen.gd" id="1_ujmiq"]
+[ext_resource type="Texture2D" uid="uid://b503hetgr88w0" path="res://sprites/orbits_bg_lowres.png" id="2_ujmiq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lapbl"]
 
@@ -16,8 +16,7 @@ script = ExtResource("1_ujmiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_lapbl")
+texture = ExtResource("2_ujmiq")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(200, 300)
@@ -42,6 +41,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Settings"
 
+[node name="Rules_button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Rules"
+
 [node name="Exit_Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -49,4 +53,5 @@ text = "Exit"
 
 [connection signal="button_down" from="PanelContainer/VBoxContainer/Play_Button" to="." method="_on_play_button_button_down"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Rules_button" to="." method="_on_rules_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]

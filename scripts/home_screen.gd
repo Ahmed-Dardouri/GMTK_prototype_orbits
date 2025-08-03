@@ -2,6 +2,7 @@ extends Control
 
 signal play
 signal settings
+signal rules
 signal exit
 
 @onready var play_button := $PanelContainer/VBoxContainer/Play_Button
@@ -28,3 +29,7 @@ func _on_exit_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	emit_signal("settings")
+
+
+func _on_rules_button_pressed() -> void:
+	emit_signal("rules")

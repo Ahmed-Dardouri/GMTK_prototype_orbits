@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://jt3afwagu1k0"]
 
-[ext_resource type="Texture2D" uid="uid://qcvy6ccr033h" path="res://sprites/orbits_bg_highres.png" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://hkcvpseov1v" path="res://scripts/settings.gd" id="1_r6d6q"]
+[ext_resource type="Texture2D" uid="uid://b503hetgr88w0" path="res://sprites/orbits_bg_lowres.png" id="2_r6d6q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6d6q"]
 
@@ -23,8 +23,7 @@ script = ExtResource("1_r6d6q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_5p8wc")
+texture = ExtResource("2_r6d6q")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(200, 300)
