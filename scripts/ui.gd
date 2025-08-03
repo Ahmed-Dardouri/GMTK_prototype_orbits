@@ -7,7 +7,8 @@ signal next_level_request
 @onready var bodies_ui = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/bodies_ui
 @onready var play_button = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Button
 @onready var counter_label = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Label
-@onready var next_lvl = $PanelContainer/MarginContainer/VBoxContainer/level_up_button
+@onready var next_lvl_button = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/level_up_button
+@onready var level_num_label = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Levelnum
 
 var button_Start_text = "Start"
 var button_Stop_text = "Stop"
@@ -89,8 +90,11 @@ func check_timer() -> void:
 	if counter_value > COUNTER_WIN_CON && timer_sigmal_emitted == false:
 		timer_sigmal_emitted = true
 		counter_label.add_theme_color_override("font_color", Color.GREEN)
-		next_lvl.disabled = false
+		next_lvl_button.disabled = false
 
 func _on_level_up_button_button_down() -> void:
 	emit_signal("next_level_request")
-	next_lvl.disabled = true
+	next_lvl_button.disabled = true
+
+func set_level_num(value: int) -> void:
+	level_num_label.text = str(value)

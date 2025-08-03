@@ -31,6 +31,7 @@ func connect_sandbox_signals() -> void:
 		box.failed.connect(god.failed)
 
 func start_level()-> void:
+	ui.set_level_num(level + 1)
 	set_god_children()
 	connect_bodies_signals()
 	timer.start()
