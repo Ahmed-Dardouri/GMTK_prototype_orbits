@@ -1,8 +1,8 @@
 extends Node2D
-@onready var button := $Button
+@onready var button := $arrow_head/Button
 @onready var line := $Line2D
 @onready var base := $base
-
+@onready var arrow_head := $arrow_head
 var force_vector : Vector2 = Vector2.ZERO
 @export var enable_force := true
 
@@ -16,8 +16,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if drag_drop:
-		button.global_position = get_global_mouse_position()
-		line.points[0] = button.position
+		arrow_head.global_position = get_global_mouse_position()
+		line.points[0] = arrow_head.position
+		var angle = line.points[0].angle()
+		angle += PI / 2
+		arrow_head.rotation = angle
+		
 	pass
 
 

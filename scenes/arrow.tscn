@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b0a7h8pyuviaj" path="res://scripts/arrow.gd" id="1_umosx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23jat"]
-bg_color = Color(0.627668, 0.806318, 0.966104, 1)
+bg_color = Color(0.627451, 0.807843, 0.964706, 0.360784)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -11,7 +11,7 @@ corner_radius_bottom_left = 20
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8ifc"]
-bg_color = Color(0.188885, 0.646637, 0.865206, 1)
+bg_color = Color(0.188235, 0.647059, 0.866667, 0.34902)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -19,7 +19,7 @@ corner_radius_bottom_left = 20
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umosx"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 1, 1, 0)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -36,7 +36,12 @@ scale = Vector2(1, 1.00144)
 points = PackedVector2Array(0, -37.605, 0, 0)
 width = 3.35
 
-[node name="Button" type="Button" parent="."]
+[node name="arrow_head" type="Polygon2D" parent="."]
+position = Vector2(0, -41)
+offset = Vector2(0, 41)
+polygon = PackedVector2Array(0, -55, -10, -34, 10, -34)
+
+[node name="Button" type="Button" parent="arrow_head"]
 z_index = 35
 anchors_preset = 7
 anchor_left = 0.5
@@ -44,16 +49,16 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -6.0
-offset_top = -44.0
+offset_top = -6.0
 offset_right = 6.0
-offset_bottom = -32.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2.40365, 2.39074)
-pivot_offset = Vector2(5.94965, 6.37842)
+pivot_offset = Vector2(5.99992, 6.00057)
 theme_override_styles/hover = SubResource("StyleBoxFlat_23jat")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q8ifc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_umosx")
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_down" from="arrow_head/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="arrow_head/Button" to="." method="_on_button_button_up"]
